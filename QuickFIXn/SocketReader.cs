@@ -292,10 +292,6 @@ public class SocketReader : IDisposable
             _readCancellationTokenSource.Cancel();
             _readCancellationTokenSource.Dispose();
 
-            // just wait when read task will be cancelled
-            _currentReadTask?.ContinueWith(_ => { }).Wait(1000);
-            _currentReadTask?.Dispose();
-
             _stream.Dispose();
             _tcpClient.Close();
         }
