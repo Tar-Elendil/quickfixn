@@ -196,7 +196,7 @@ public class SocketInitiatorThread : IResponder
 
         // just wait when read task will be cancelled
         _currentReadTask?.ContinueWith(_ => { }).Wait(1000);
-        _currentReadTask = null;
+
         _stream?.Close();
     }
 
